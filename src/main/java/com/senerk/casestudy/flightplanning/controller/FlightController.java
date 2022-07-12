@@ -29,6 +29,11 @@ public class FlightController {
     }
 
 
+    /**
+     * Return flight info
+     * @param code flight's code
+     * @return Flight info
+     */
     @GetMapping("code/{code}")
     public ResponseEntity<ApiResponse<FlightDto>> getFlightByCode(@PathVariable String code) {
         try {
@@ -40,6 +45,12 @@ public class FlightController {
         }
     }
 
+    /**
+     * Return flights collection by name with pagination
+     * @param name Flight name contains
+     * @param pageable Paging info
+     * @return Flights collection
+     */
     @GetMapping("display-text/{name}/pageable")
     public ResponseEntity<ApiResponse<List<FlightDto>>> getFlightByNameContains(@PathVariable String name, Pageable pageable) {
         try {
@@ -51,6 +62,12 @@ public class FlightController {
         }
     }
 
+    /**
+     * Flight list of airport with pagination
+     * @param airportId Airport Id
+     * @param pageable Paging info
+     * @return Flights Collection
+     */
     @GetMapping("airport-id/{airportId}/pageable")
     public ResponseEntity<ApiResponse<List<FlightDto>>> getFlightByAirPort(@PathVariable String airportId, Pageable pageable) {
         try {
@@ -62,6 +79,11 @@ public class FlightController {
         }
     }
 
+    /**
+     * Save a new flight record
+     * @param flightDto New Data Flight info for save
+     * @return Saved data id
+     */
     @PostMapping
     public ResponseEntity<ApiResponse<String>> saveFlight(@RequestBody @Valid FlightDto flightDto) {
         try {
@@ -72,6 +94,11 @@ public class FlightController {
         }
     }
 
+    /**
+     * Update a flight info that is already in db
+     * @param flightDto New Data Flight info for update
+     * @return Nothing
+     */
     @PutMapping
     public ResponseEntity<ApiResponse<Void>> updateFlight(@RequestBody @Valid FlightDto flightDto) {
         try {
@@ -82,6 +109,11 @@ public class FlightController {
         }
     }
 
+    /**
+     * Delete a flight from db (set passive)
+     * @param flightId flight id
+     * @return nothing
+     */
     @DeleteMapping("id/{flightId}")
     public ResponseEntity<ApiResponse<Void>> udeleteFlight(@PathVariable String flightId) {
         try {
