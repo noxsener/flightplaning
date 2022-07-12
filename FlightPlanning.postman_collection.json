@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "e528327c-286a-44fd-9cff-6a976591532e",
+		"name": "FlightPlanning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AirPort",
+			"item": [
+				{
+					"name": "Get All AirPort List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/airport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"airport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AirPort By Code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/airport/code/SAW",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"airport",
+								"code",
+								"SAW"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AirPort List by Contains name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/airport/displayName/İstanbul",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"airport",
+								"displayName",
+								"İstanbul"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AirPorts By Paginable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/airport/pageable?page=0&size=3&sort=code",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"airport",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "code"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save New Airport",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"displayName\":\"DENEME HAVALİMANI\",\r\n   \"code\":\"???\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rest/airport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"airport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Airport Info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"84a53b3b-9be6-4ed3-a7ff-8f155088dbe2\",\r\n   \"displayName\":\"DENEME HAVALİMANI2\",\r\n   \"code\":\"????\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rest/airport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"airport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Airport (Set Passive)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/airport/id/82b72d6a-362a-44f8-9629-631d04875c84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"airport",
+								"id",
+								"82b72d6a-362a-44f8-9629-631d04875c84"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flight",
+			"item": [
+				{
+					"name": "Get Flight List by Text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/flight/display-text/Adana Havalimanı/pageable?page=0&size=3&sort=displayText",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"flight",
+								"display-text",
+								"Adana Havalimanı",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "displayText"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Flight List by AirportId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/flight/airport-id/c2475440-35db-45f4-958d-2d113623975d/pageable?page=0&size=3&sort=displayText",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"flight",
+								"airport-id",
+								"c2475440-35db-45f4-958d-2d113623975d",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "displayText"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Flight By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/flight/code/TK9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"flight",
+								"code",
+								"TK9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Flight",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"displayText\": \"Adana Havalimanı->Denizli Çardak Havalimanı\",\r\n        \"flightCode\": \"TK9998\",\r\n        \"sourceAirPort\": {\r\n            \"id\": \"b48c9a7d-6416-4223-8024-d323c28320f5\"\r\n        },\r\n        \"arrivalAirPort\": {\r\n            \"id\": \"372bc48d-9254-4aa8-a81c-7f74f5fa9c18\"\r\n        },\r\n        \"takeOffDate\": \"2022-07-04T01:00:00\",\r\n        \"status\": \"IN_PLANNING\",\r\n        \"passive\": false\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rest/flight",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"flight"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Flight",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\":\"8215874a-1a13-434e-85d3-3e6d82b99990\",\r\n        \"displayText\": \"Adana Havalimanı->Denizli Çardak Havalimanı\",\r\n        \"flightCode\": \"TK9999\",\r\n        \"sourceAirPort\": {\r\n            \"id\": \"b48c9a7d-6416-4223-8024-d323c28320f5\"\r\n        },\r\n        \"arrivalAirPort\": {\r\n            \"id\": \"372bc48d-9254-4aa8-a81c-7f74f5fa9c18\"\r\n        },\r\n        \"takeOffDate\": \"2022-07-04T01:00:00\",\r\n        \"status\": \"IN_PLANNING\",\r\n        \"passive\": false\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rest/flight",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"flight"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Flight (Set Passive)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rest/flight/id/6ac78076-2483-4203-920d-97b2b680cbb6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rest",
+								"flight",
+								"id",
+								"6ac78076-2483-4203-920d-97b2b680cbb6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
