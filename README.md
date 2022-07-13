@@ -1,4 +1,8 @@
 # Flight Planing API
+
+**Postman Collection File**
+_FlightPlanning.postman_collection.json_
+
 3rd Libraries
 
 **RestFUL WS**
